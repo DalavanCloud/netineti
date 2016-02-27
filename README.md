@@ -9,21 +9,15 @@ Setting up VirtualEnv (Linux)
   * install virtualenv (easy_install virtualenv or pip install virtualenv)
   * use the neti_env.py as the environment bootstrap (python neti_env.py ~/virtualenvs/neti)
   * this creates a local environment for the netineti project with all the dependencies installed
-<<<<<<< HEAD:README.md
-  * dependencies => pyyaml, nltk, nose
-=======
-  
   * dependencies => pyyaml, nltk, nose, scikitlearn
-  
->>>>>>> 2e1a787468ef6673deccfbd4d89949e490628483:README.rst
   * source ~/virtualenvs/neti/bin/activate
   * use netineti
 
 Dependencies
 ------------
 
-  * nltk >= 2.09b3. Run nltk.download() to get neccessary corpus. 
-  Just download all the data and packages if you don't know which one to choose. 
+  * nltk >= 2.09b3. Run nltk.download() to get neccessary corpus.
+  Just download all the data and packages if you don't know which one to choose.
 
 Description
 -----------
@@ -63,7 +57,7 @@ Files                           | Descriptions
 `src/data/white_list.txt`       | big training list, run by default
 `src/data/no_names.txt`         | training text w/o scientific names for negative examples
 `src/data/names_in_context.txt` | training list of names and these names in a context of a sentence.
-`src/data/test.txt`             | American Seashells book (with scientific names) for testing purposes 
+`src/data/test.txt`             | American Seashells book (with scientific names) for testing purposes
 `src/neti_neti.py`              | Machine Learning based approach to find scientific names
 `src/neti_neti_helper.py`       | miscellaneous helper functions
 `src/neti_neti_trainer.py`      | Scientific Name classifier -- given a name-like string it accepts or rejects it as a scientific name
@@ -71,6 +65,12 @@ Files                           | Descriptions
 
 Usage
 -----
+
+### Docker
+
+```
+docker run -d -p 0.0.0.0:6384:6384 gnames/netineti
+```
 
 Using from (python) server:
 
