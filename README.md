@@ -69,7 +69,7 @@ Usage
 ### Docker
 
 ```
-docker run -d -p 0.0.0.0:6384:6384 gnames/netineti
+docker run -d -p 0.0.0.0:6384:6384 --name netineti gnames/netineti
 ```
 
 Using from (python) server:
