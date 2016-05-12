@@ -2,8 +2,8 @@ NetiNeti
 ========
 
 ``netineti`` package is a scientific name discovery tool which uses Naive
-Basian classifier to distinguish between scientific names and other words in
-texts. The tool is performing the best with English texts, and the worst for
+Bayes classifier to distinguish between scientific names and other words in
+texts. The tool is performing the best with English texts, and the worst with 
 Italian or Spanish texts. You can read more about ``netineti`` in 
 `Akella et al. 2012 <http://bit.ly/1Nsfwkh>`_.
 
@@ -14,19 +14,19 @@ Python scripts Usage
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
+
     from neti.neti_neti_trainer import NetiNetiTrainer
     from neti.neti_neti import NetiNeti
 
-    if __name__ == '__main__':
-        print "Running NetiNeti Training, it might take a while..."
+    print "Running NetiNeti Training, it might take a while..."
 
-        nnt = NetiNetiTrainer()
-        nn = NetiNeti(nnt)
+    nnt = NetiNetiTrainer()
+    nn = NetiNeti(nnt)
 
-        print nn.find_names("A frog-killing fungus known as Batrachochytrium
-        dendrobatidis, or Bd, has already led to the decline of more than 200
-        amphibian species including the now extinct-in-the-wild Panamanian
-        golden frog.")
+    print nn.find_names("A frog-killing fungus known as Batrachochytrium
+    dendrobatidis, or Bd, has already led to the decline of more than 200
+    amphibian species including the now extinct-in-the-wild Panamanian
+    golden frog.")
 
 RESTful API Usage
 ~~~~~~~~~~~~~~~~~
@@ -34,17 +34,27 @@ RESTful API Usage
 Run service with 
 
 .. code:: bash
+
     neti_server
 
 2. Access API like this:
 
 .. code::
+
     http://localhost:4567/find?type=url&input=http://www.bacterio.cict.fr/d/desulfotomaculum.html
 
 or
 
 .. code::
+
     http://localhost:4567/find?type=text&input=%22Mus%20musculus%22
+
+RESTful API with Docker
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+    docker run -d -p 0.0.0.0:6384:6384 --name netineti gnames/netineti
 
 Files
 -----
@@ -62,3 +72,12 @@ Files                                  Descriptions
 ``netineti/neti_neti_helper.py``        miscellaneous helper functions
 ``netineti/neti_neti_trainer.py``       Scientific Name classifier -- given a name-like string it accepts or rejects it as a scientific name
 ====================================== ==========================================
+
+Development
+-----------
+
+We recommend to use `Docker<https://docs.docker.com/engine/installation/>`_
+and `Docker Compose<https://docs.docker.com/compose/install/>`_ to isolate 
+``netineti`` dependencies from your home system.
+
+1. Fork ``netineti`` `repository <

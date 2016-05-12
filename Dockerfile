@@ -1,6 +1,6 @@
-FROM ubuntu:14.04.3
+FROM ubuntu:16.04.0
 MAINTAINER Dmitry Mozzherin
-ENV LAST_FULL_REBUILD 2016-02-25
+ENV LAST_FULL_REBUILD 2016-05-12
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get -y install build-essential git-core python \
@@ -12,10 +12,15 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN pip install nltk
 RUN python -c "import nltk; nltk.download('punkt')"
 
-RUN git clone https://github.com/mbl-cli/NetiNeti.git app && \
-    rm -rf /app/.git
-RUN cp /app/config/neti_http_config.cfg.example /app/config/neti_http_config.cfg
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
+RUN mkdir /app
+COPY . /app
 WORKDIR /app
+
+RUN cd /app && python setup.py
 
 CMD ["python", "neti_tornado_server.py"]
