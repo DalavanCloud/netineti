@@ -1,4 +1,4 @@
-FROM ubuntu:16.04.0
+FROM ubuntu:16.04
 MAINTAINER Dmitry Mozzherin
 ENV LAST_FULL_REBUILD 2016-05-12
 
@@ -21,6 +21,6 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-RUN cd /app && python setup.py
+RUN cd /app && python setup.py develop
 
-CMD ["python", "neti_tornado_server.py"]
+CMD ["python", "bin/neti_tornado_server.py"]

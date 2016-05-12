@@ -76,8 +76,8 @@ Files                                  Descriptions
 Development
 -----------
 
-We recommend to use `Docker<https://docs.docker.com/engine/installation/>`_
-and `Docker Compose<https://docs.docker.com/compose/install/>`_ to isolate 
+We recommend to use `Docker <https://docs.docker.com/engine/installation/>`_
+and `Docker Compose <https://docs.docker.com/compose/install/>`_ to isolate 
 ``netineti`` dependencies from your home system.
 
 1. Fork ``netineti`` `repository <
