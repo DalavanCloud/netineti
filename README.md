@@ -1,7 +1,5 @@
 NetiNeti -- Scientific Names Discovery Tool
 ===========================================
-[![Gitter][1]][2]
-
 
 Setting up VirtualEnv (Linux)
 -----------------------------
@@ -107,6 +105,3 @@ http://ia341016.us.archive.org/3/items/britishinsectsge00westuoft/britishinsects
 
 
 Note: offsets do not work in this version.
-
-[1]: https://badges.gitter.im/Join%20Chat.svg
-[2]: https://gitter.im/mbl-cli/NetiNeti?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
