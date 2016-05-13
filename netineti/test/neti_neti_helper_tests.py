@@ -38,7 +38,7 @@ class TestHelperFunctions(unittest.TestCase):
         res = helper.get_words_slice(tokens, 1, 2, 4)
         self.assertEqual(res, 'on')
         res = helper.get_words_slice(tokens, 1, 5, 8)
-        self.assertEqual(res, 'Null')
+        self.assertEqual(res, '')
         res = helper.get_words_slice(tokens, 1, 3, None)
         self.assertEqual(res, 'n')
 

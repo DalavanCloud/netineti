@@ -6,6 +6,7 @@ Input: Any text preferably in Engish
 Output : A list of scientific names
 """
 import os
+import re
 import nltk
 from .helper import *
 
@@ -37,38 +38,29 @@ class NetiNeti():
         self._offsets_list = []
         self._names_dict = {}
         self._index_dict = {}
-        self._last_genus = ''
-        self._prev_last_genus = ''
         self._count = -1
 
-    def find_names(self, text, resolve_abbreviated = False):
+    def find_names(self, text):
         """
         Return a string of names concatenated with a newline and a list of
         offsets for each mention of the name in the original text.
 
         Arguments:
         text -- input text
-        resolve_abbreviated_names -- boolean to add expanded version of an
-          abbreviated genus (false by default) and not recommended for use
         """
         self._text = text
         self._offsets_list = []
         self._names_list = []
         self._index_dict = {}
         self._count = -1
-        space_regex = re.compile('\s')
+        space_regex = re.compile(r'\s')
         tokens = space_regex.split(text) #any reason not to use nltk tokenizer?
 
         names_verbatim, offsets = self._find_names_in_tokens(tokens)
         names_set = set(self._names_list)
         names_list = list(names_set)
-        resolved_names = None
-        if resolve_abbreviated:
-            resolved_names = resolve_abbreviated_names(names_list, names_set)
-        else:
-            names_list.sort()
-            resolved_names = names_list
-        return "\n".join(resolved_names), names_verbatim, offsets
+        names_list.sort()
+        return "\n".join(names_list), names_verbatim, offsets
 
     def _find_names_in_tokens(self, tokens):
         """Returns tuple
@@ -138,18 +130,17 @@ class NetiNeti():
                 word2_orig.strip(), word3_orig)
             bigram = remove_trailing_period(word1 + " " + word2)
             trigram = remove_trailing_period(word1 + " " + word2 + " " + word3)
-            self._find_previous_genera()
             if(self._is_like_trinomial(word1, word2, word3)):
                 if(self._is_a_name(trigram, tokens, self._count, 2)):
                     start, end = self._get_offsets(word1_orig, word2_orig,
                         word3_orig)
                     self._offsets_list.append((start, end))
-                    self._resolve_abbreviation(word1, word2, word3)
+                    self._prepare_name(word1, word2, word3)
             elif(self._is_like_binomial(word1, word2)):
                 if(self._is_a_name(bigram, tokens, self._count, 1)):
                     start, end = self._get_offsets(word1_orig, word2_orig)
                     self._offsets_list.append((start, end))
-                    self._resolve_abbreviation(word1, word2, "")
+                    self._prepare_name(word1, word2, "")
             elif(self._is_like_uninomial(word1)):
                 if self._is_a_name(re.sub("\.", ". ",
                     remove_trailing_period(word1)), tokens, self._count, 0):
@@ -182,30 +173,10 @@ class NetiNeti():
         unigram = re.sub("\. ", " ", remove_trailing_period(trigram[-2]))
         if self._is_like_binomial(trigram[-2], trigram[-1]):
             if self._is_a_name(bigram, tokens, self._count + 1, 1):
-                self._resolve_abbreviation(trigram[-2], trigram[-1], "")
+                self._prepare_name(trigram[-2], trigram[-1], "")
             elif self._is_like_uninomial(unigram):
                 if self._is_a_name(unigram, tokens, self._count + 1, 0):
                     self._names_list.append(unigram)
-
-    def _find_previous_genera(self):
-        """Returns None
-        Finds 2 last used genera
-
-        """
-        i = -1
-        count = 0
-        if self._names_list:
-            while abs(i) <= len(self._names_list):
-                if (self._names_list[i][1] != "["
-                    and self._names_list[i][1] != "."):
-                    if count == 0:
-                        self._last_genus = self._names_list[i].split(" ")[0]
-                        count = count + 1
-                    else:
-                        self._prev_last_genus = \
-                                self._names_list[i].split(" ")[0]
-                        break
-                i -= 1
 
     def _is_like_uninomial(self, word):
         """Returns a boolean
@@ -317,10 +288,9 @@ class NetiNeti():
             index, span)
         return self._model_object.get_model().classify(features) == 'taxon'
 
-    def _resolve_abbreviation(self, word1, word2, word3):
+    def _prepare_name(self, word1, word2, word3):
         """Returns None
-        Tries to resolve abbreviated genus in a name and adds result
-        to the names list
+        Composes a name from words and adds it to the names list
 
         Arguments:
         word1 -- the first word of a name
@@ -332,22 +302,9 @@ class NetiNeti():
             name = remove_trailing_period((word1 + " " + word3).strip())
         else:
             name = remove_trailing_period((word1 + " " + word2
-                + " " + word3).strip())
+                                           + " " + word3).strip())
         if(name[1] == "." and name[2] == " "):
-            if(self._names_dict.has_key(name)):
-                self._names_list.append(remove_trailing_period((word1[0]
-                    + "[" + self._names_dict[name] + "]" + " "
-                    + word2 + " " + word3).strip()))
-            elif(self._last_genus and word1[0] == self._last_genus[0]):
-                self._names_list.append(remove_trailing_period((word1[0]
-                    + "[" + self._last_genus[1:] + "]"
-                    + " " + word2 + " " + word3).strip()))
-            elif(self._prev_last_genus and word1[0] == self._prev_last_genus):
-                self._names_list.append(remove_trailing_period((word1[0]
-                    + "[" + self._prev_last_genus[1:] + "]" + " "
-                    + word2 + " " + word3).strip()))
-            else:
-                self._names_list.append(name)
+            self._names_list.append(name)
         else:
             self._names_list.append(name)
             self._names_dict[remove_trailing_period((word1[0] + ". "

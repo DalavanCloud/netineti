@@ -91,7 +91,7 @@ def get_words_slice(words,
             result = words[word_index][first_char_index:second_char_index]
     except IndexError:
         pass
-    if result == [] or result == '':
+    if result == []:
         result = 'Null'
     return result
 
