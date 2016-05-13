@@ -5,7 +5,7 @@ ENV LAST_FULL_REBUILD 2016-05-12
 RUN apt-get update && apt-get upgrade -y && \
     apt-get -y install build-essential git-core python \
     python-setuptools python-dev python-numpy python-sklearn \
-    python-tornado python-pip && \
+    python-tornado python-nose python-pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -23,4 +23,4 @@ WORKDIR /app
 
 RUN cd /app && python setup.py develop
 
-CMD ["python", "bin/neti_tornado_server.py"]
+CMD ["python", "/app/bin/neti_tornado_server.py"]

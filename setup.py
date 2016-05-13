@@ -23,6 +23,7 @@ setup(name='netineti',
       license='MIT',
       packages=['netineti'],
       install_requires=[
+          'tornado>=4.3',
           'nltk>=3.1',
           'scikit-learn>=0.17'
       ],

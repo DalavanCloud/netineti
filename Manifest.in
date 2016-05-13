@@ -1,0 +1,8 @@
+include README.rst
+include /config/http.cfg
+include /netineti/data/black_list.txt
+include /netineti/data/names_in_context.txt
+include /netineti/data/no_names.txt
+include /netineti/data/test_result_before_refactoring.txt
+include /netineti/data/test.txt
+include /white_list.txt

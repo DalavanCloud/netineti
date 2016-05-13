@@ -59,19 +59,19 @@ RESTful API with Docker
 Files
 -----
 
-====================================== ==========================================
+====================================== =========================================
 Files                                  Descriptions
-====================================== ==========================================
+====================================== =========================================
 ``README.rst``                         this file
 ``netineti/data/black_list.txt``       "black list" for pre filtering, common words to decrease number of false positives
 ``netineti/data/white_list.txt``       big training list, run by default
 ``netineti/data/no_names.txt``         training text w/o scientific names for negative examples
 ``netineti/data/names_in_context.txt`` training list of names and these names in a context of a sentence.
 ``netineti/data/test.txt``              American Seashells book (with scientific names) for testing purposes
-``netineti/neti_neti.py``               Machine Learning based approach to find scientific names
-``netineti/neti_neti_helper.py``        miscellaneous helper functions
-``netineti/neti_neti_trainer.py``       Scientific Name classifier -- given a name-like string it accepts or rejects it as a scientific name
-====================================== ==========================================
+``netineti/finder.py``               Machine Learning based approach to find scientific names
+``netineti/helper.py``        miscellaneous helper functions
+``netineti/trainer.py``       Scientific Name classifier -- given a name-like string it accepts or rejects it as a scientific name
+====================================== =========================================
 
 Development
 -----------
