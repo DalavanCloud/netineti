@@ -6,8 +6,8 @@ import sys
 import time
 import os
 import difflib
-from .trainer import NetiNetiTrainer
-from .finder import NetiNeti
+from netineti.trainer import NetiNetiTrainer
+from netineti.finder import NetiNeti
 
 num_cycles = 3
 
@@ -57,18 +57,18 @@ nn = NetiNeti(classifier)
 for i in range(1, num_cycles):
     print "going through the cycle %s" % i
     time_start = time.clock()
-    result = nn.find_names(open("data/test.txt").read())
+    result = nn.find_names(open("../data/test.txt").read())
     print "Name finding time: %s" % (time.clock() - time_start)
 
-    test_result_file = open("data/test_result_after_refactoring.txt", 'w')
+    test_result_file = open("../data/test_result_after_refactoring.txt", 'w')
 
     for i in result[1]:
         test_result_file.write(i + "\n")
 
     test_result_file.close()
 
-    test_result_before_refactoring = open('data/test_result_before_refactoring.txt').read().splitlines()
-    test_result_after_refactoring = open('data/test_result_after_refactoring.txt').read().splitlines()
+    test_result_before_refactoring = open('../data/test_result_before_refactoring.txt').read().splitlines()
+    test_result_after_refactoring = open('../data/test_result_after_refactoring.txt').read().splitlines()
 
     d = difflib.Differ()
     delta = d.compare(test_result_after_refactoring, test_result_before_refactoring)
@@ -101,4 +101,4 @@ f1_scores = [p[2] for p in population]
 
 print '', '\t', 'recall', '\t', 'precision', '\t', 'f1_score'
 print 'Mean', '\t', mean(recalls), '\t', mean(precisions), '\t', mean(f1_scores)
-#print 'St.d', '\t', standard_deviation(recalls), '\t', standard_deviation(precisions), '\t', standard_deviation(f1_scores)
+print differences
