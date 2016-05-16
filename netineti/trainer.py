@@ -309,7 +309,8 @@ class NetiNetiTrainer(object):
 
         """
         model = None
-        print self.learning_algorithm
+        algorithm = {"NB": "Naive Bayes"}
+        print "Trainer uses %s algorithm" % algorithm[self.learning_algorithm]
         if(self.learning_algorithm == "NB"):
             model = nltk.NaiveBayesClassifier.train(featuresets)
         elif(self.learning_algorithm == "MaxEnt"):

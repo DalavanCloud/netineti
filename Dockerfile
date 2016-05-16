@@ -21,6 +21,6 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-RUN cd /app && python setup.py deveop
+RUN cd /app && python setup.py develop
 
 CMD ["python", "/app/bin/neti_server"]

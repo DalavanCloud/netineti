@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Test finder module"""
+import logging
 import unittest
 from netineti.finder import NetiNeti
 from netineti.trainer import NetiNetiTrainer
@@ -8,13 +9,48 @@ class TestFinder(unittest.TestCase):
     """Test helper functions"""
 
     @classmethod
-    def setUpClass(TestFinder)
-        self.nt = NetiNetiTrainer()
+    def setUpClass(cls):
+        """ Sets trainer once per all tests.
 
-    def test_left_strip(self):
-        """removes non-latin letters from the left of the token"""
-        test_tokens = ['(hello', '#hello', 'H.!', 'шшhello', 'âhello']
-        res = [helper.left_strip(token) for token in test_tokens]
-        self.assertEqual(res, [('hello', 1), ('hello', 1),
-                               ('H.!', 0), ('hello', 4), ('hello', 2)])
+        Run `nosetests` -s to see print output """
+        print ("Running trainer")
+        super(TestFinder, cls).setUpClass()
+        cls.nt = NetiNetiTrainer()
+        cls.nn = NetiNeti(TestFinder.nt)
 
+    def test_uninomial(self):
+        """ Returns one found name from a text """
+        res = TestFinder.nn.find_names("Poaceae are not spiders!")
+        self.assertEqual(res, ('Poaceae', ['Poaceae'], [(0, 7)]))
+
+    def test_binomial(self):
+        """ Returns one found name from a text. The test shows a known
+        problem where empty space needs to be added in the end
+        for a name to be recognized """
+        res = TestFinder.nn.find_names("Pardosa moesta ")
+        self.assertEqual(res, ('Pardosa moesta', ['Pardosa moesta'],
+                               [(0, 14)]))
+
+    def test_no_names(self):
+        """ Returns empty result when no names found """
+        res = TestFinder.nn.find_names("Nothing that looks like a name")
+        self.assertEqual(res, ("", [], []))
+
+    def test_multiple_names(self):
+        """ Returns multiple names """
+        res = TestFinder.nn.find_names("""
+        Homo sapiens ate Pardosa moesta for breakfast, then
+        Parus major ate Homo sapiens for lunch """)
+        self.assertEqual(res,  ('Homo sapiens\nPardosa moesta\nParus major',
+                                ['Homo sapiens', 'Pardosa moesta',
+                                 'Parus major', 'Homo sapiens'],
+                                [(9, 21), (26, 40), (69, 80), (85, 97)]))
+
+
+    def test_commas_between_words(self):
+        """ Commas after 1st or 2nd word means stop looking... """
+        res = TestFinder.nn.find_names("""
+        Homo, sapiens, sapiens are not subspecies name, because there
+        are commas between them """)
+        self.assertEqual(res, ('Homo sapiens sapiens',
+                               ['Homo, sapiens, sapiens'], [(9, 31)]))
