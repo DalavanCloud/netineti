@@ -1,11 +1,12 @@
 #!/usr/bin/env python
-import subprocess
-import shlex
+""" Checks if new code creates signfificantly different results with old code.
+Note, that significant difference might be desirable --- this test allows to
+find out which changes exactly happened."""
 import math
 import sys
 import time
-import os
 import difflib
+import pickle
 from netineti.trainer import NetiNetiTrainer
 from netineti.finder import NetiNeti
 
@@ -13,7 +14,7 @@ num_cycles = 3
 
 if len(sys.argv) > 1:
     try:
-        num_cycles =  int(sys.argv[1]) + 1
+        num_cycles = int(sys.argv[1]) + 1
     except ValueError:
         pass
 
@@ -51,6 +52,7 @@ population = []
 
 time_start = time.clock()
 classifier = NetiNetiTrainer(learning_algorithm='NB')
+pickle.dump(classifier, open('../data/netineti_trainer_dump', 'wb'))
 time_training = time.clock()
 print "Training time: %s" % (time_training - time_start)
 nn = NetiNeti(classifier)
