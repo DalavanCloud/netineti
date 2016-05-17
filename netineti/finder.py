@@ -27,11 +27,9 @@ class NetiNeti(object):
           (default "data/black_list.txt")
 
         """
-        self._black_dict = {}
         black_list = open(os.path.dirname(os.path.realpath(__file__)) + "/"  +
                           black_list_file)
-        for line in black_list:
-            self._black_dict[line.rstrip()] = 1
+        self._black_list = frozenset([l.rstrip() for l in black_list])
         self._model_object = model_object
         self._text = ''
         self._names_list = []
@@ -281,10 +279,11 @@ class NetiNeti(object):
         word -- a token, first element of a trigram
 
         """
-        word = helper.remove_trailing_period(word)
-        word_parts = word.split("-")
-        res = [self._black_dict.has_key(part) for part in word_parts]
-        return True not in res and not self._black_dict.has_key(word.lower())
+        word = helper.strip_token(word)
+        for w in  word.split("-"):
+            if w.lower() in self._black_list:
+                return False
+        return True
 
     def _is_a_name(self, token, context, index, span):
         """Returns a boolean
