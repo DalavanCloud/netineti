@@ -73,11 +73,33 @@ Files                                  Descriptions
 ``netineti/trainer.py``       Scientific Name classifier -- given a name-like string it accepts or rejects it as a scientific name
 ====================================== =========================================
 
-Development
------------
+Development and Testing
+-----------------------
 
 We recommend to use `Docker <https://docs.docker.com/engine/installation/>`_
-and `Docker Compose <https://docs.docker.com/compose/install/>`_ to isolate 
+and `Docker Compose <https://docs.docker.com/compose/install/>`_ to isolate
 ``netineti`` dependencies from your home system.
 
-1. Fork ``netineti`` `repository <
+Build application's image (needs to be done only if a new gem or new
+Ubuntu package are added)
+
+```
+docker-compose build
+
+```
+
+Start Docker Compose
+
+```
+docker-compose up
+
+```
+Run all tests in another terminal window
+
+```
+docker-compose run app nosetests -s
+```
+
+``netineti`` repository is mapped to its docker container in development
+mode, so when you develop new features on host machine all the changes will be
+automatically updated in the Docker container as well.
