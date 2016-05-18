@@ -18,7 +18,6 @@ Haliotis
 Olivella
 Cassis
 Mercenaria mercenaria
-Cahokia
 Strombus
 Himalaya
 Tellina radiata
@@ -31,9 +30,11 @@ Murex brajidaris
 Miirex
 trunculiis
 Darius
+Athenaeus
 Actium
 Antonius
 Theodosius
+Purpura
 Purpura
 Thais
 lapilhts
@@ -42,11 +43,11 @@ Aplysia
 Xenophora
 Tectarius
 Janthina
-Florida
 Janthina
 Litiopa
 Carinaria
 Firoloida
+(Scyllaea
 Gastropteron rubrum
 Nassarius
 Nassarius
@@ -119,7 +120,6 @@ Littorina
 Busycon contrarhmi
 Coquina
 Barnea costata
-Florida
 Hiatella arctica
 Petricola
 Lithophaga
@@ -136,6 +136,7 @@ Saxidounis imttalli
 Schizothaenis
 nuttalli
 Cuspidaria
+Foromya
 Mya arenaria
 Tellina agilis
 Tagelus plebeius
@@ -160,6 +161,7 @@ proxima
 Lithophaga
 G. catanella
 Nucula
+Yoldia, etc
 Cuspidaria
 Kellia
 Teredo diegensis
@@ -172,6 +174,8 @@ Modiolus deviissiis
 Septifer bifurcatus
 Anomia sivtplex
 Mytihis edtilis
+Fetricola pholadi-
+forfnis
 Donax goiildi
 Mya arenaria
 Barnea costata
@@ -200,7 +204,6 @@ Spirula
 Argonauta
 Oegopsida
 Epitonium
-Florida chitons
 Katherina tunicata
 (Aplacophora
 Chitonidae
@@ -223,7 +226,6 @@ Dentalium
 Janthina
 Marginella
 Cyphoma
-Florida
 Anachis avara
 Coquina
 Donax variabilis
@@ -282,7 +284,8 @@ Eidijnidae
 Corallio-
 phila
 Calliostoma doliarium
-Littorina
+Littorina irro-
+rata
 Purpura patida
 Comis clarki
 Scaphella jiinonia
@@ -305,6 +308,7 @@ Dinocardhnn vanhyiiingi
 Veneridae
 Tivela stidtonim
 Veneridae
+Callocardia
 Lucinidae
 Phacoides anmdatiis
 Mactridae
@@ -336,6 +340,8 @@ F. tulipa
 F. hunteria
 Ostrea virginica
 Crassostrea virginica
+Venus merce-
+naria
 Mercenaria mercenaria
 B. spirata
 Aplysia
@@ -387,6 +393,9 @@ FISSURELLIDAE
 EMARGINULINAE
 Emarginulinae
 Zeidora
+Nesta
+
+aa
 Emarginula
 Fiincuirella
 Rimula
@@ -498,9 +507,11 @@ A. fungoides
 LEPETIDAE
 Lepeta
 Acmaea
+Acmaea
 Lepeta caeca
 TROCHIDAE
 MARGARITINAE
+Margarites
 Margarites costalts
 Columella
 M. groenlandiciis
@@ -713,7 +724,6 @@ Scaphella schmitti
 Scaphella jmwnia
 Voluta musica
 Terebra taurina
-Mitra florida
 Scaphella dohrni
 Cancellaria reticulata
 Polystira albida
@@ -804,7 +814,6 @@ Froviartynia
 Tegula pulligo
 Tegula
 TURBINIDAE
-Tegiila
 Tegula
 Columella
 Calliostoma
@@ -837,6 +846,7 @@ T. spenglerianus
 Astraea
 Astraea longispina
 A. spinulosa
+A. brevi
 Astraea americana
 Operculum
 Lithopoma
@@ -995,7 +1005,8 @@ lina
 VITRINELLIDAE
 Vitrinella
 Columella
-Operculum
+Operculum corne-
+ous
 Vitrinella
 Vitrinella helicoidea
 Vitrinella
@@ -1017,11 +1028,6 @@ T. (Ajinulicalhis) lituspalmarum
 (Ajinulicalhis) lituspalmarum
 T. (Ellipetyhts) cocolitoris
 (Ellipetyhts) cocolitoris
-Florida pilsbryi
-Florida
-
-nesaemn
-Florida parvicallum
 TURRITELLIDAE
 Tachyrbynchiis erosinn
 Operculum
@@ -1081,6 +1087,7 @@ C. dalli
 C. carpenteri
 C. occidentale
 C. orciitti
+C. crehricbic
 Caecum
 Caecum
 Caecum floridanum
@@ -1429,17 +1436,12 @@ Neosimnia
 Neosimnia acicularis
 Columella
 Neosivmia iiniplicata
-Simnia
 Neosimnia piragua
-Simnia
 Columella
 OVULIDAE
 Neosimnia avena
-Simnia
 Neosimnia loebbeckeana
-Simnia
 Columella
-Simnia
 N. variabilis
 N.
 aequalis
@@ -1517,6 +1519,8 @@ Sinum maculatum
 Sinum scopulosum
 S. debile
 S. scopulosum
+S. cali-
+fornicum
 NATICIDAE
 NATICINAE
 Naticarius
@@ -1538,6 +1542,7 @@ Cassis
 Fhalium
 P. glaiicwn
 Operculum
+Cassis
 Semicassis
 Fhalium granulatum
 CASSIDIDAE
@@ -1659,6 +1664,7 @@ Boreotrophon scitulus
 Oper-
 culum
 Boreotrophon dalli
+B. triangiila
 B. iniilticostatiis
 B. scitulus
 B. orpheiis
@@ -1676,6 +1682,8 @@ Orpheus
 Trophonopsis
 Trophonopsis lastiis
 MURICIDAE
+Trophon tejmi-
+sculptus
 Muricopsis
 Muricopsis hexagona
 Muricidea
@@ -1687,7 +1695,7 @@ Urosalpinx chierea
 Pseiidoneptunea vndtangida
 Muri-
 copsis ostreanim
-Acmaea
+Acmaea antil
 Acmaea
 
 leuco
@@ -1701,7 +1709,7 @@ rosea
 Luca^
 
 pina
-Lucapinella
+Lucapinella lima
 Lepeta
 
 caeca
@@ -1714,7 +1722,7 @@ listeri
 Diodora
 
 dysoni
-Emarginula
+Emarginula phrixo
 Arene gemina
 Tricolia
 
@@ -1731,7 +1739,7 @@ euglyptum
 Solariella
 
 lamellosa
-Megathura
+Megathura crenu
 Califor-
 nia
 Diodora
@@ -1765,8 +1773,10 @@ Cali-
 fornia
 Calliostoma
 snpragranosum
-Acmaea
-Liotia
+Acmaea fenes-
+trata
+Liotia fenes-
+trata
 Califor-
 nia
 Tegula gallina
@@ -1786,14 +1796,16 @@ Littonna irrorata
 Littoriua saxntilis
 Littorina ziczac
 Littorina obtnsata
-Tectarius
+Tectarius miiri-
+catus
 Ecliininus
 nodulosus
 Nodilit-
 torina tuberculata
 Littorina
 rneleagris
-Cerithium
+Cerithium mus-
+caruni
 Cerithium
 Caro-
 lina
@@ -1820,12 +1832,15 @@ scutulata
 Spiroglyphus
 
 lituellus
+Aletes squami
 Crepidula ojiyx
 Turritella
 
 cooperi
 Turritella
 mariana
+Polinices reclii-
+sianus
 Opalia
 wrobleivshii
 Calyptraea
@@ -1843,6 +1858,8 @@ fossatus
 Trixna solandri
 Cali-
 fornia
+Trivia califor-
+niana
 Fusinus
 Vermiculnria
 
@@ -1855,8 +1872,8 @@ Vermi-
 cidaria
 Petalconchm
 7iigricaiis
-Modulus
-Tenagodus
+Modulus vwdu
+Tenagodus squa
 Turriiella
 exoleta
 Turritella
@@ -1873,6 +1890,8 @@ traea centralis
 Cheilea
 ecfuestris
 Crepidula
+Hipponix anli-
+(juatus
 Cali-
 fornia
 Melanella
@@ -1885,6 +1904,8 @@ Architectonica krebsi
 Trivia maltbiana
 Trivia suffusa
 Trivia pediculus
+Trivia candi-
+dula
 Epitonium
 
 laynellosiiin
@@ -1912,6 +1933,7 @@ Primovula carnea
 Amauropsis
 
 islandica
+Sinum perspec
 Seila
 
 adamsi
@@ -1925,7 +1947,6 @@ Conus jaspideus
 Conus stearnsi
 Conus verrucosus
 Strojnbus gigas
-Florida
 Stroinbiis costatiis
 Xeno-
 
@@ -1937,9 +1958,12 @@ Tojma galea
 Eiidoliiim crosseamim
 Melongeria melongejia
 Biisycon carica
-Nassarius
+Nassarius trivit-
+tatus
 Biisycon perversiim
 Vasum miiricatum
+Biisycon canalicii-
+latum
 Nassarius
 Nassarius
 vibex
@@ -1948,7 +1972,8 @@ Neptunca
 clecemcostata
 Caro-
 lina
-Cassis
+Cassis madagas-
+cariensis
 Typhis
 longicornis
 Pleiiroploca
@@ -1988,15 +2013,23 @@ Thais deltoidea
 Fossarus elegans
 Thais lapillus
 Thais ritstica
+Murex cellu-
+losus
 Thais deltoidea
 Purpura
 patula
 Cymatiuni labiosum
 Cymalium
 gracile
+Bursa spadi-
+cea
 Cymatinni
 chlorostomum
-Bailya
+Cymaiuim murici-
+uum
+Morum onis
+Bailya iniri-
+cata
 Antillophos candei
 Drupa nodulosa
 ENGINA
@@ -2047,6 +2080,8 @@ Cylichna
 gouldi
 Haininoea
 solitaria
+Actcun puncto-
+striatiis
 Micromelo undata
 Pyrnnculus
 caelatiis
@@ -2091,6 +2126,7 @@ Anadara brasiliana
 Noetia ponderosa
 Ostren eqiiestris
 Mnscidus discors
+Mnscnlus laevi
 Mnscnlus niger
 Caro-
 lina
@@ -2117,7 +2153,8 @@ Venericardia
 borealis
 Lyonsia hyalina
 Feriploma leanum
-Periploma
+Periploma papyra-
+tium
 Periploma
 inequale
 Thracia conradi
@@ -2144,7 +2181,8 @@ aristata
 Cali-
 fornia
 Botula
-Venericardia
+Venericardia ventri-
+cosa
 Entodesjua
 saxicola
 Cali-
@@ -2181,6 +2219,8 @@ Tagelus divisus
 Eiuis
 directus
 LUCINA
+Codnkia orhi-
+culata
 Caro-
 lina
 LUCINA
@@ -2212,7 +2252,7 @@ Clinucardium
 
 nuttalli
 LUCINA
-Codakia
+Codakia cali
 Phacoides nuttalli
 Tivela stultorum
 Chione calijorniensis
@@ -2224,6 +2264,7 @@ Douax
 
 californicus
 Douax gouldi
+Irus laviel
 Cyathodouta
 
 uudulaia
@@ -2244,13 +2285,16 @@ Arctica islandica
 Merccnaria
 
 campechiensis
-Mercenaria
+Mercenaria rncr-
+cenaria
 Chione gnis
 Callocardia tcxasinna
 Pitar morrhunim
 Aniigona
 Antigona rugatitia
 Mulinia lateralis
+Spimla solidis-
+siina
 Labiosa
 plica tella
 Caro-
@@ -2261,13 +2305,17 @@ Mactra
 fragilis
 Caro-
 lina
+Pliolas caiu
 Iphigenia
+Mya ivun-
+cata
 Martesia striata
 Mya
 areuaria
 Ajw-
 lymetis intastriata
-Pctricola
+Pctricola plioladi-
+formis
 MURICIDAE
 Muricopsis ostrearum
 Urosalpinx perrugata
@@ -2370,6 +2418,7 @@ Nitidella gouldi
 Nitidella carinata
 COLUMBELLIDAE
 Mitrella
+Astyris
 Mitrella lunata
 Mitrella raveneli
 Mitrella tuberosa
@@ -2616,7 +2665,6 @@ Columella
 Voluta virescens
 Colu-
 mella
-Florida
 SCAPHELLINAE
 Scaphella
 Scaphella junonia
@@ -2760,13 +2808,13 @@ Conus mazei
 Conus granulatus
 Coims anstiin
 Periostracum
-Florida
 Cojiiis clarki
 Periostracum
 C. frisbeyae
 TEREBRIDAE
 Conus californiciis
 TEREBRIDAE
+Terebra
 Columella
 T. flannnea
 T. jeldmajuii
@@ -2804,6 +2852,8 @@ Crassispira
 Crassispira ebenina
 Mangelia
 Kurtziella
+Genmmla perisce-
+lida
 Moiiilispira leiicocyma
 Ancistrosyrinx
 radiata
@@ -3115,7 +3165,7 @@ C. televms
 Creseis aciciila
 Creseis virgula
 Hyalocylis striata
-Cavolina
+Cavolina i?i
 S. trochiformis
 Cavolina qiiadridentata
 bispinosa
@@ -3135,6 +3185,8 @@ C. elongata
 Diacria
 Cavolina
 Cavolina trispinosa
+C. mucro-
+nata
 C. cuspidata
 C. reeviana
 Cavolina quadridentata
@@ -3149,6 +3201,7 @@ C. oryza
 C. iirceolaris
 Pjieuviodennopsis
 Cliopsis
+Notobrmichaea
 Euribia
 DORIDIDAE
 Archidoris
@@ -3173,6 +3226,7 @@ Cadlina
 Cadlina laevis
 Radula
 C. repanda
+C. obve
 C. planulata
 Cadlina flavomaciilata
 Radula
@@ -3207,6 +3261,7 @@ Adalaria proxhim
 OKENIIDAE
 Ancula
 Ancula cristata
+Ancula
 Radula
 Polycera {hummi
 DENDRONOTIDAE
@@ -3326,6 +3381,7 @@ Calloplax jajieirejisis
 Chaetopleura apiculata
 Tojiicia schranmti
 ISCHNOCHITONIDAE
+Calloplax
 Calloplax janeirensis
 Chaetopleura
 Chaetopleura apiculata
@@ -3376,6 +3432,8 @@ Dentalium laqueatum
 DENTALIIDAE
 Dentalium texasianum
 Cadiihis carolmensis
+Caduliis qiiadri-
+dentatiis
 Dentalium texasiamnn
 D. pilsbryi
 D. eboreum
@@ -3404,7 +3462,6 @@ SOLEMYACIDAE
 Solemya
 Petrasma
 Solemya velum
-Florida
 Solemya
 S. borealis
 Solemya occidentalis
@@ -3490,12 +3547,16 @@ Frotoniiciila
 Tindaria
 Tifidaria brunnea
 Arcidae
+
+aa
 Limopsidae
 Glycymeridae
 ARCIDAE
 ARCINAE
 Periostracum
 A. umbonata
+A. oceiden-
+talis
 Periostracum
 Barbatia
 Barbatia
@@ -3876,7 +3937,7 @@ Liicina amiantus
 Lucina leiicocyvia
 Liicina multilineata
 Lucina approxiinata
-Liicina
+Liicina tenui
 Farvilucina
 Lucina multilineata
 Lucina
@@ -3894,10 +3955,12 @@ Lucina
 Fseudomiltha
 Lucina floridana
 Lucina
+Phacoides
 Dentilucina
 Phacoides pectinatus
 Lucina
-Lucina
+Lucina ja-
+maicensis
 P. filosus
 Lucinisca
 Phacoides nassula
@@ -3935,6 +3998,9 @@ Divaricella quadrisidcata
 Lucina
 D. dentata
 CHAMIDAE
+Echinochama
+
+aa
 Pseudochama
 Chama vmcerophylla
 Spondylus
@@ -4051,7 +4117,6 @@ Chama macerophylla
 Pseudochama radians
 Chaina congregata
 Echinochaiua arcinella californica
-Chama florida
 Echinochama cornuta
 Echinochama arcinella
 Pycnodonta hyotis
@@ -4125,6 +4190,7 @@ Dosina
 Antigona
 Mercejiaria
 campechiensis
+Circojnphahis
 VENERIDAE
 Mercenaria
 campechiensis
@@ -4144,7 +4210,6 @@ Chione califomiensis
 C. succincta
 Chione fluctifraga
 Chione griis
-Florida
 Chione pygnmea
 VENERIDAE
 Lirophora
@@ -4257,7 +4322,6 @@ Tellina radiata
 Tellina laevigata
 Tellinella
 Tellina interrupta
-Florida
 Tellina idae
 Angulus
 Tellina agilis
@@ -4285,6 +4349,7 @@ T. sayi
 T. texana
 Tellina
 TELLINIDAE
+Oudardia
 Tellina modesta
 T. buttoni
 Tellina idae
@@ -4292,6 +4357,8 @@ Tellina hitea
 Peronidia
 Tellina lutea
 Periostracum
+T. venu-
+losa
 Moerella
 Tellina saluionea
 Periostracum
@@ -4465,6 +4532,8 @@ Solecurtus sanctaemarthae
 MACTRIDAE
 Mactridae
 Mulinia
+
+aa
 Spisula
 Mactra fragilis
 Mactra
@@ -4648,6 +4717,7 @@ Periostracum
 Lyonsia arenosa
 Lyonsia
 Lyonsia
+Lyonsia
 PANDORIDAE
 Entodesma
 Agriodesma
@@ -4682,6 +4752,8 @@ PERIPLOMATIDAE
 Feriploma
 Feriplovia papyratiwn
 TIDAE
+P. papy-
+raceiim
 P.
 maeqiiivahis
 Periplovta discus
@@ -4850,6 +4922,7 @@ Paphia staminea
 Cardium corbis
 Mytilus edulis diegensis
 Ensis directus
+Solenomya
 Hiatella gallicana
 H. arctica
 Tivela stultorum
@@ -4950,7 +5023,6 @@ Lucina
 Limopsis
 Lucina
 Caecum
-Simnia
 Crenella
 Musculus
 Dosinia
@@ -4998,11 +5070,11 @@ Puncturella
 Caecum
 Mopalia
 Puncturella
-Simnia
 Macoma
 Janthina
 Amphissa
 Octopus
+Junonia
 Cingula
 Buccinum
 Caecum
@@ -5020,7 +5092,6 @@ Puncturella
 Caecum
 Marginella
 Lucina
-Simnia
 Lucina
 Crassinella
 Lucina
@@ -5062,7 +5133,6 @@ Drillia
 Planaxis
 Plectrum
 Buccinum
-Simnia
 Cingula
 Marginella
 Marginella
@@ -5095,7 +5165,6 @@ Sargassum
 Pandora
 Latirus
 Buccinum
-Simnia
 Bittium
 Musculus
 Velutina
@@ -5138,7 +5207,6 @@ Marginella
 Rupellaria
 Tegula
 Caecum
-Simnia
 Lucina
 Drillia
 Bittium
@@ -5184,6 +5252,7 @@ acutus
 Nassarius
 Rhizorus
 Adalaria proxima
+Arcopsis
 Pyramidella
 Brachidontes, 353
 adansonianus
@@ -5278,6 +5347,7 @@ Odostomia
 Amiantis
 Lucina
 Amicula stelleri
+Amphissa
 Columbiana
 Amphithalamus
 Conus, 263
@@ -5313,6 +5383,7 @@ Anodontia
 Anomalocardia
 Anomiidae
 Antigona
+Acmaea
 Dentalium, 330
 antillarum
 Haminoea, 279
@@ -5398,6 +5469,7 @@ Barbatia, 343
 bairdi
 Calliostoma
 Liotia
+Lischkeia
 Caecum, 150
 bakeri
 Rissoina, 137
@@ -5419,6 +5491,7 @@ Fusinus
 Neosimnia
 Barbarofusus, 243
 barbata
+Barbatia
 Barbatia
 Hipponix, 167
 barkleyensis
@@ -5718,6 +5791,7 @@ Nemocardium, 399
 centiquadrata
 Phalium, 193
 centralis
+Calyptraea
 Pododesmus
 Cerastoderma, pinnulatum
 Ceratozona rugosa
@@ -5752,9 +5826,12 @@ Lucina, 389
 cicatricosum
 Phalium
 Cidarina
+Lischkeia
 Mopalia
 Clinocardium
 Cypraea
+Gastropteron, 285
+cmerens
 Cingula
 Leucozonia
 Circinae
@@ -5832,6 +5909,7 @@ Calyptraea, 169
 contracta
 Corbula, 457
 contrarium
+Acmaea
 Crepidula
 Cyclostrema, 122
 cookeana
@@ -5893,6 +5971,7 @@ Nucula, 335
 crenulatus
 Crepidula
 Crepipatella lingulata
+Acmaea
 Nitidella, 222
 crispata
 Purpura, 215
@@ -5921,6 +6000,7 @@ Sthenorytis, 161
 cubaniana
 Bursa, 198
 ciibensis
+Acmaea
 Puncturella
 Acteocina
 Cumingia
@@ -5954,6 +6034,7 @@ Cypraecassis
 Cypraeolina
 Cyprina
 Cyrtodaria
+Aplysia
 Caecum
 Cirsotrema
 Rissoina
@@ -6006,6 +6087,7 @@ diegoensis
 Lamellaria
 Corbula, 457
 digitalis
+Acmaea
 Dinocardium
 Rubellatoma, 272
 dionc
@@ -6151,6 +6233,7 @@ Fissurella, loi
 Fasciolaria
 Fasciolariidae, 240
 fastigiata
+Calyptraea
 Arcopagia
 Tellina
 Favartia, 204
@@ -6158,6 +6241,7 @@ feldmanni
 Terebra, 265
 femorale
 Cymatium
+Acmaea
 Liotia
 Ferminoscala, 163
 ferruginea
@@ -6195,8 +6279,7 @@ flexuosa
 Rangia
 Strigilla, 429
 floralia
-Olivella, 247
-florida
+Olivella
 Scaphella, 251
 floridana
 Distorsio, 197
@@ -6261,6 +6344,7 @@ fulminata
 Dendrodoris, 303
 fulvescens
 Tegula
+Acmaea
 Botula, 356
 fusca
 Pyramidella
@@ -6470,7 +6554,9 @@ Alicrogaza
 Macoma
 Opalia
 Nassarius
+Acmaea
 Trichotropis
+Acmaea
 Apolymetis
 Bittium
 Cavolina
@@ -6494,6 +6580,7 @@ islandica
 Amauropsis
 Trachycardium
 Isognomonidae
+Acmaea
 Barbatia, 343
 jamaicensis
 Lucina, 388
@@ -6610,6 +6697,7 @@ Spiratella
 Lucina
 Congeria, 382
 leucopleura
+Acmaea
 Leucozonia
 Lunatia
 Caecum
@@ -6617,6 +6705,7 @@ Calliostoma
 Mopalia
 Tegula
 Limacina
+Acmaea
 Lucapinella
 Terebra, 266
 limatula
@@ -6696,7 +6785,7 @@ Corbula, 459
 luteopicta
 Daphnella, 273
 lyrata
-Macoma
+Macrocallista
 Macron lividus
 Murex, 205
 macropus
@@ -7009,6 +7098,7 @@ Pachydesma
 Pachypoma
 Ancula
 Spiratella
+Acmaea
 Symmetrogephyrus, 317
 palliata
 Littorina, 133
@@ -7040,6 +7130,7 @@ Bailya, 231
 parvicallum
 Teinostoma
 Parvilucina
+Acmaea
 Patinopecten, 361
 patula
 Siliqua
@@ -7071,6 +7162,7 @@ Pelecypoda, 332
 pellucida
 Lima, 370
 peloronta
+Acmaea
 Nuculana, 339
 penicillata
 Anachis, 221
@@ -7098,6 +7190,7 @@ Perotrochus
 Nassarius
 Cerodrillia
 Persicula
+Acmaea
 Retusa, 280
 peruviana
 Anomia
@@ -7256,6 +7349,7 @@ Amauropsis, 188
 purpurea
 Gemma, 419
 pusilla
+Acmaea
 Pusula, 177
 pycna
 Olivella
@@ -7289,7 +7383,6 @@ Trochita, 173
 radiata
 Glaucus, 309
 radiata
-Pinctada
 Tellina
 Ranella
 Rangia
@@ -7419,6 +7512,7 @@ Littorina
 Entodesma
 Saxidomus
 Tellina
+Acmaea
 Littorina
 Nuttallina
 Epitonium
@@ -7447,6 +7541,7 @@ sculpta
 Nuculana, 337
 scutulata
 Littorina
+Acmaea
 Scyllaea pelagica
 Scyllaeidae
 Searlesia dira
@@ -7512,6 +7607,7 @@ speciosa
 Eucrassatella
 Strombus, 174
 spectralis
+Acmaea
 Spengleria rostrata
 Turbo, 123
 sphaera
@@ -7566,6 +7662,7 @@ Lacuna
 Sconsia
 Crucibulum
 Turbonilla
+Acmaea
 Strigilla
 Antigona
 Rissoina
@@ -7681,9 +7778,11 @@ Tergipes despectus
 Odostomia
 Tricolia, 127
 tessulata
+Acmaea
 Colubraria, 233
 testiculus
 Cypraecassis
+Acmaea
 Tetrabranchia, 478
 tetrica
 Lima, 370
