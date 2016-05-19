@@ -3,7 +3,7 @@
 class Token(object):
     """Implements logic associated with tokens"""
 
-    def __init__(self, start, end, chars):
+    def __init__(self, start, end, verbatim):
         """Builds Token instance
 
         Keyword arguments
@@ -14,10 +14,4 @@ class Token(object):
         """
         self.start = start
         self.end = end
-        self.chars = chars
-        self.verbatim = ''.join(self.chars)
-
-    def has_letters(self):
-        """Checks if token has any letters"""
-        return len(self.chars) > 1 and any(c.isalpha(c) for c in self.chars)
-
+        self.verbatim = verbatim
