@@ -6,6 +6,37 @@ import re
 #r_strip = re.compile(u'^(.*?)([\\W\\d_]*)$', re.U | re.M)
 #l_strip = re.compile(u'^([\\W\\d_]*)(.*)$', re.U | re.M)
 
+def tokenize(text):
+    """ Creates tokens from text by splitting it into words by empty spaces
+    and undividing word at ends the lines"""
+    tokens = []
+    token = []
+    token_start = 0
+    re_word_divisions = re.compile(r'(?<=[a-z])\s*-\s*\r?\n\s*')
+    div, divs = Iterator(re.finditer(re_word_divisions, text))
+    split, splits = Iterator(re.finditer(r'\s', text))
+
+    for i, c in enumerate(text):
+        if i < split.start(): next
+        if i < div.start():
+
+
+    print len(splits)
+        tokens =
+        token = Token((last_end + 1, s.end() - 1, text[)
+        tokens.append(s)
+    return tokens
+
+def _word_divisions(text):
+    """Finds divisions of words at new lines"""
+    divs = re.finditer(re_word_divisions, text)
+    try:
+        next_div = divs.next()
+    except StopIteration:
+        next_div = None
+    return [next_div, divs]
+
+
 def left_strip(token):
     """Takes a token and strips non alpha characters off the left. It
     returns the stripped string and the number of characters it stripped.

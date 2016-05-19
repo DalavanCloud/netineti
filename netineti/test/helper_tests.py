@@ -6,6 +6,15 @@ import netineti.helper as helper
 class TestHelperFunctions(unittest.TestCase):
     """Test helper functions"""
 
+    def test_tokenize(self):
+        """Takes text and splits it into tokens removing word splits in the end
+        of a line"""
+        text = """The text has words di-\nvided by a vari - \r\nety of
+        word-splitting combinations of \n, \r and - .\n when \r
+        and - are not together \n and \r work as normal space."""
+        tokens = helper.tokenize(text)
+        self.assertEqual(tokens, [])
+
     def test_left_strip(self):
         """removes non-latin letters from the left of the token"""
         test_tokens = ['(hello', '#hello', 'H.!', 'шшhello', 'âhello']

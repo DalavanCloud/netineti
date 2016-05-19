@@ -44,7 +44,12 @@ class TestFinder(unittest.TestCase):
         self.assertEqual(res, ("", [], []))
 
     def test_black_dict(self):
-        """ Discards names from black list """
+        """ Discards names from black list, in this case 'titanium' is a
+        black-listed word"""
+        res = TestFinder.nn.find_names("""Homo titanium is in black list,
+        and Homo titatinus is not""")
+        self.assertEqual(res, ('Homo titatinus',
+                               ['Homo titatinus'], [(44, 58)]))
 
     def test_multiple_names(self):
         """ Returns multiple names """
