@@ -3,6 +3,13 @@
 class Token(object):
     """Implements logic associated with tokens"""
 
+    @staticmethod
+    def is_tokenizable(string):
+        """Checks if string should be tokenized"""
+
+        return len(string) > 1 and any(c.isalpha() for c in string)
+
+
     def __init__(self, start, end, verbatim):
         """Builds Token instance
 

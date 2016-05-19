@@ -6,7 +6,7 @@ import re
 #r_strip = re.compile(u'^(.*?)([\\W\\d_]*)$', re.U | re.M)
 #l_strip = re.compile(u'^([\\W\\d_]*)(.*)$', re.U | re.M)
 
-def has_letters(string):
+def is_tokenizable(string):
     """Checks if string has any letters"""
 
     return len(string) > 1 and any(c.isalpha() for c in string)

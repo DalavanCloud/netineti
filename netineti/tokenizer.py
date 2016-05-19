@@ -2,7 +2,6 @@
 
 import re
 from netineti.token import Token
-import netineti.helper as helper
 
 class Tokenizer(object):
     """Takes a text and returns a list of token objects"""
@@ -44,7 +43,7 @@ class Tokenizer(object):
                 tokens.append(t)
         return [Token(t[0][0], t[0][1], t[1])
                 for t in tokens
-                if helper.has_letters(t[1])]
+                if Token.is_tokenizable(t[1])]
 
     def _pre_tokens(self):
         """ Collects data into a list of tuples: (int, int), string)
