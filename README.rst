@@ -3,8 +3,8 @@ NetiNeti
 
 ``netineti`` package is a scientific name discovery tool which uses Naive
 Bayes classifier to distinguish between scientific names and other words in
-texts. The tool is performing the best with English texts, and the worst with 
-Italian or Spanish texts. You can read more about ``netineti`` in 
+texts. The tool is performing the best with English texts, and the worst with
+Italian or Spanish texts. You can read more about ``netineti`` in
 `Akella et al. 2012 <http://bit.ly/1Nsfwkh>`_.
 
 Usage
@@ -31,7 +31,7 @@ Python scripts Usage
 RESTful API Usage
 ~~~~~~~~~~~~~~~~~
 
-Run service with 
+Run service with
 
 .. code:: bash
 
