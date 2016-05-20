@@ -21,7 +21,10 @@ class Tokenizer(object):
 
 
     def tokenize(self):
-        """Parses text into list of Token objects"""
+        """Parses text into list of Token objects and reverses its order
+        so the first token becomes the last one
+
+        """
         tokens = []
         pre_tokens = self._pre_tokens()
         divs = re.finditer(Tokenizer.RE_WORD_DIV, self._text)
@@ -43,7 +46,7 @@ class Tokenizer(object):
                 tokens.append(t)
         return [Token(t[0][0], t[0][1], t[1])
                 for t in tokens
-                if Token.is_tokenizable(t[1])]
+                if Token.is_tokenizable(t[1])][::-1]
 
     def _pre_tokens(self):
         """ Collects data into a list of tuples: (int, int), string)

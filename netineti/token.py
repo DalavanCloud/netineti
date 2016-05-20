@@ -5,9 +5,9 @@ class Token(object):
 
     @staticmethod
     def is_tokenizable(string):
-        """Checks if string should be tokenized"""
+        """Checks if a string should be tokenized"""
 
-        return len(string) > 1 and any(c.isalpha() for c in string)
+        return len(string) > 0
 
 
     def __init__(self, start, end, verbatim):
