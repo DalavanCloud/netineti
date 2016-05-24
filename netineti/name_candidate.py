@@ -8,7 +8,7 @@ class NameCandidate(object):
         self.token = token
         self.tokens = tokens
 
-    def has_potential(self):
+    def is_promising(self):
         """Evaluates quality of NameCandidate"""
 
         return isinstance(self.token, Token) and len(self.token.verbatim) > 0

@@ -51,7 +51,7 @@ class NameFinder(object):
     def _traverse_tokens(self):
         """Takes tokens from the end of tokens array,
         evaluates them, and starts searching for names
-        from appropriate tokens
+        from 'promising' tokens
 
         """
         while self._tokens:
@@ -60,9 +60,9 @@ class NameFinder(object):
 
     def _find_next_candidate(self):
         while self._tokens:
-            token = self._tokens.pop()
-            if token.is_uninomial_candidate():
-                return self._prepare_name_candidate(token)
+            name_candidate = NameCandidate(self._tokens.pop(), self._tokens)
+            if name_candidate.is_promising():
+                return name_candidate
         return NameCandidate(None, None)
 
     def _prepare_name_candidate(self, token):
