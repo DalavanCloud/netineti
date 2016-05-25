@@ -1,4 +1,6 @@
 """Reads NetiNeti configuration file"""
+# pylint: disable=R0903
+
 import os
 import ConfigParser
 
