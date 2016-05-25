@@ -13,3 +13,5 @@ class NameCandidate(object):
 
         return isinstance(self.token, Token) and len(self.token.verbatim) > 0
 
+    def contains_name(self):
+        pass

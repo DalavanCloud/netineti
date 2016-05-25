@@ -6,3 +6,8 @@ services:
       - "0.0.0.0:6384:6384"
     volumes:
       - .:/app
+    depends_on:
+      - gnparser
+  gnparser:
+    image: gnames/gnparser
+    command: [socket]

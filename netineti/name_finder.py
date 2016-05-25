@@ -28,6 +28,7 @@ class NameFinder(object):
         model_object -- a trained NetiNetiTrainer instance object
 
         """
+        self.lists = ListData()
         self._model_object = model
         self._tokens = []
 
@@ -50,9 +51,16 @@ class NameFinder(object):
         from 'promising' tokens
 
         """
+        pre_names = self._collect_pre_names()
+        return self._refine_names(pre_names)
+
+    def _collect_pre_names(self):
+        pre_names = []
         while self._tokens:
             name_candidate = self._find_next_candidate()
-            self._examine_name_candidate(name_candidate)
+            if name_candidate.contains_name():
+                pre_names << name_candidate
+        return pre_names
 
     def _find_next_candidate(self):
         while self._tokens:

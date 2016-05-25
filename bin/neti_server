@@ -16,7 +16,7 @@ from netineti.trainer import NetiNetiTrainer
 
 PATH = os.path.abspath(os.path.dirname(__file__))
 CONFIG = ConfigParser.ConfigParser()
-CONFIG.read(PATH + '/../config/http.cfg')
+CONFIG.read(PATH + '/../config/netineti.cfg')
 HOST = CONFIG.get('http_settings', 'host')
 PORT = int(CONFIG.get('http_settings', 'port'))
 

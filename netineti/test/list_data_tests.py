@@ -1,4 +1,5 @@
 """Tests for  ListData and all lists it supports"""
+
 import unittest
 from netineti.list_data import ListData
 
@@ -9,7 +10,7 @@ class TestListData(unittest.TestCase):
 
     def test_contains(self):
         """Check if we can lookup names in lists in reasonable amount of time"""
-        for i in range(1, 100000):
+        for i in range(1, 100000): # pylint: disable=W0612
             self.assertTrue(self.listdata.black.contains("aaa"))
             self.assertFalse(self.listdata.black.contains("Pomatomus"))
 
@@ -26,6 +27,7 @@ class TestListData(unittest.TestCase):
             self.assertFalse(self.listdata.uninomials.contains("Major"))
 
             self.assertTrue(self.listdata.grey_species.contains("academia"))
+            self.assertTrue(self.listdata.grey_species.contains("major"))
             self.assertFalse(self.listdata.grey_species.contains("saltator"))
 
             self.assertTrue(self.listdata.grey_genera.contains("Cancer"))
@@ -35,5 +37,6 @@ class TestListData(unittest.TestCase):
                 self.listdata.grey_genera.contains_species("Cancer", "aeneus")
             )
             self.assertFalse(
-                self.listdata.grey_genera.contains_species("Cancer", "treatment")
+                self.listdata.grey_genera
+                .contains_species("Cancer", "treatment")
             )
