@@ -18,7 +18,7 @@ class NetiNeti(object):
 
     """
 
-    def __init__(self, model_object, black_list_file='data/black_list.txt'):
+    def __init__(self, model_object, black_list_file='data/black/bayes.txt'):
         """Creates the name finder object.
 
         Arguments:

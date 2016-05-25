@@ -17,4 +17,4 @@ class TestNameCandidate(unittest.TestCase):
         """NameCandidate __init__ creates the class instance"""
         token, tokens = self.__class__.prepare_data("Homo sapiens is an ape")
         nc = NameCandidate(token, tokens)
-        self.assertTrue(nc.has_potential())
+        self.assertTrue(nc.is_promising())

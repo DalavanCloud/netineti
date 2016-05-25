@@ -6,8 +6,8 @@ Input: Any text preferably in Engish
 Output : A list of scientific names
 """
 
-import os
 from netineti.tokenizer import Tokenizer
+from netineti.list_data import ListData
 from netineti.name_candidate import NameCandidate
 
 class NameFinder(object):
@@ -17,8 +17,6 @@ class NameFinder(object):
     This version supports offsets.
 
     """
-    DATA_PATH = os.path.dirname(os.path.realpath(__file__)) + "/data/"
-
     @staticmethod
     def _prepare_output(names):
         return names
@@ -30,8 +28,6 @@ class NameFinder(object):
         model_object -- a trained NetiNetiTrainer instance object
 
         """
-        black_list = open(NameFinder.DATA_PATH + 'black_list.txt')
-        self._black_list = frozenset([l.rstrip() for l in black_list])
         self._model_object = model
         self._tokens = []
 
