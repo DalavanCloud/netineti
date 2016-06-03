@@ -10,7 +10,7 @@ class Tokenizer(object):
     @staticmethod
     def _next_word_division(divs):
         try:
-            match_obj = divs.next()
+            match_obj = next(divs)
             return (match_obj.start(), match_obj.end())
         except StopIteration:
             return (-1, -1)

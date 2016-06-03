@@ -24,8 +24,8 @@ class NameParser(object):
 
     def parse(self, name_string):
         """Sends a name-string to parser and gets back parsed result"""
-        self.socket.send(name_string)
-        return json.loads(self.socket.recv(self.buffer_size))
+        self.socket.send(name_string.encode())
+        return json.loads(self.socket.recv(self.buffer_size).decode())
 
     def pos(self, name_string):
         """Returns only positions of words in the name-string"""

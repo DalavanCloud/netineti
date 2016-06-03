@@ -2,7 +2,7 @@
 # pylint: disable=R0903
 
 import os
-import ConfigParser
+import configparser
 
 class Config(object):
     """Reads configuration file and stores data in a dictionary"""
@@ -10,6 +10,6 @@ class Config(object):
                            "/../config/netineti.cfg")
 
     def __init__(self):
-        cnf = ConfigParser.ConfigParser()
+        cnf = configparser.ConfigParser()
         cnf.read(self.PATH)
         self.config = {s: dict(cnf.items(s)) for s in cnf.sections()}

@@ -22,7 +22,7 @@ class Data(object):
 class CommonWords(Data):
     """Dictionary words from English plus most used 1000 words from
     each of these languages: Italian, Portuguese, French and German"""
-    PATH = DATA_PATH + "black/common.txt"
+    PATH = DATA_PATH + "black/common_eu_words.txt"
 
 class BlackBayes(Data):
     """Prepares black list for Naive Bayes"""

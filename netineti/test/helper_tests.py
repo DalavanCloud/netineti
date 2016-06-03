@@ -11,26 +11,26 @@ class TestHelperFunctions(unittest.TestCase):
         test_tokens = ['(hello', '#hello', 'H.!', 'шшhello', 'âhello']
         res = [helper.left_strip(token) for token in test_tokens]
         self.assertEqual(res, [('hello', 1), ('hello', 1),
-                               ('H.!', 0), ('hello', 4), ('hello', 2)])
+                               ('H.!', 0), ('шшhello', 0), ('âhello', 0)])
 
     def test_right_strip(self):
         """removes non-latin letters from the right of the token"""
         test_tokens = ['hello)', 'hello,', 'H.', 'helloдада', 'helloâ']
         res = [helper.right_strip(token) for token in test_tokens]
         self.assertEqual(res, [('hello', -1), ('hello', -1), ('H', -1),
-                               ('hello', -8), ('hello', -2)])
+                               ('helloдада', 0), ('helloâ', 0)])
 
     def test_strip_token(self):
         """removes non-lating characters from both left and right"""
         test_tokens = ['(hello)', '#hello,', '1H.!', '123helloдада', 'âhelloâ']
         res = [helper.strip_token(token) for token in test_tokens]
-        self.assertEqual(res, ['hello', 'hello', 'H', 'hello', 'hello'])
+        self.assertEqual(res, ['hello', 'hello', 'H', 'helloдада', 'âhelloâ'])
 
     def test_get_ascii_ratio(self):
         """calculates ratio between ascii7 letters and words"""
         tokens = ['однажды', '12345', 'wait', 'for', 'me!']
         res = helper.get_ascii_ratio(tokens)
-        self.assertAlmostEqual(res, 0.4827586206896552)
+        self.assertAlmostEqual(res, 0.3181818181818182)
 
     def test_get_words_slice(self):
         """cuts a slice out of a word from word list"""

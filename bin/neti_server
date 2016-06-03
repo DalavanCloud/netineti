@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # pylint: disable=C0103,W0223
 """ HTTP server for RESTful API. Takes POST methods """
 
-import ConfigParser
+import configparser
 import os
 import re
 
@@ -15,7 +15,7 @@ from netineti.finder import NetiNeti
 from netineti.trainer import NetiNetiTrainer
 
 PATH = os.path.abspath(os.path.dirname(__file__))
-CONFIG = ConfigParser.ConfigParser()
+CONFIG = configparser.ConfigParser()
 CONFIG.read(PATH + '/../config/netineti.cfg')
 HOST = CONFIG.get('http_settings', 'host')
 PORT = int(CONFIG.get('http_settings', 'port'))
@@ -31,9 +31,9 @@ class MainHandler(tornado.web.RequestHandler):
         data = self.get_argument('data', '', False)
         try:
             from_web_form = self.get_arguments('from_web_form')[0] == 'true'
-        except StandardError:
+        except RuntimeError:
             from_web_form = False
-        names = nn.find_names(data, resolve_abbreviated=True)
+        names = nn.find_names(data)
 
         if from_web_form:
             results = names[0]
@@ -44,8 +44,8 @@ class MainHandler(tornado.web.RequestHandler):
 
             # since full_names_list and offsets are in a 1:1 correspondence,
             # this should work
-            print full_names_list
-            print offsets
+            print(full_names_list)
+            print(offsets)
             if len(full_names_list) == len(offsets):
                 results = '|'.join(
                     ["%s,%s,%s" % (re.sub(r'/\s/', '', name),
@@ -59,7 +59,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(results)
 
 if __name__ == '__main__':
-    print "Training NetiNeti, it will take a while..."
+    print("Training NetiNeti, it will take a while...")
     nnt = NetiNetiTrainer()
     nn = NetiNeti(nnt)
     application = tornado.web.Application([
@@ -67,5 +67,5 @@ if __name__ == '__main__':
     ])
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(PORT)
-    print 'Starting server, use <Ctrl-C> to stop'
+    print('Starting server, use <Ctrl-C> to stop')
     tornado.ioloop.IOLoop.instance().start()

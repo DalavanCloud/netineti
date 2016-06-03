@@ -2,6 +2,7 @@
 Collection of functions used by name finding algorithms """
 
 import re
+import functools
 
 #r_strip = re.compile(u'^(.*?)([\\W\\d_]*)$', re.U | re.M)
 #l_strip = re.compile(u'^([\\W\\d_]*)(.*)$', re.U | re.M)
@@ -71,8 +72,8 @@ def get_ascii_ratio(words):
     words -- list of words
     """
     words_string = ''.join(words)
-    nonascii_num = reduce(lambda x, y: x+1 if (ord(y) > 128) else x,
-                          words_string, 0)
+    nonascii_num = functools.reduce(lambda x, y: x+1 if (ord(y) > 128) else x,
+                                    words_string, 0)
     return float(nonascii_num)/len(words_string)
 
 
@@ -193,9 +194,9 @@ def resolve_abbreviated_names(names_list, names_set):
     for name in full_names_list:
         result = name_regex.match(name).groups()
         names_dict[result[0] + "." + result[2]] = result[1]
-    print names_dict.keys()
+    print(names_dict.keys())
     for name in abbr_names:
-        if names_dict.has_key(name):
+        if name in names_dict:
             resolved_names.append(name[0] \
                     + "[" + names_dict[name] + "]" + " " + name[3:])
         else:

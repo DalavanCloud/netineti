@@ -3,14 +3,17 @@ MAINTAINER Dmitry Mozzherin
 ENV LAST_FULL_REBUILD 2016-05-12
 
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get -y install build-essential git-core python \
-    python-setuptools python-dev python-numpy python-sklearn \
-    python-tornado python-nose python-pip && \
+    apt-get -y install build-essential git-core python3 \
+    python3-setuptools python3-dev python3-pip && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    ln -s /usr/bin/pip3 /usr/bin/pip && \
+    pip install --upgrade pip
 
-RUN pip install nltk
-RUN python -c "import nltk; nltk.download('punkt')"
+
+RUN pip3 install nltk numpy scipy scikit-learn tornado pylint nose
+RUN python3 -c "import nltk; nltk.download('punkt')"
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -23,4 +26,4 @@ WORKDIR /app
 
 RUN cd /app && python setup.py develop
 
-CMD ["python", "/app/bin/neti_server"]
+CMD ["/usr/bin/python3", "/app/bin/neti_server"]

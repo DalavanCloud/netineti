@@ -19,7 +19,7 @@ class TestFinder(unittest.TestCase):
         """ Sets trainer once per all tests.
 
         Run `nosetests` -s to see print output """
-        print "Running trainer"
+        print("Running trainer")
         super(TestFinder, cls).setUpClass()
         if USE_DUMP:
             cls.nt = pickle.load(open(TRAINER_DUMP, 'rb'))

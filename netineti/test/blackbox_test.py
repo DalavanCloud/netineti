@@ -54,13 +54,13 @@ time_start = time.clock()
 classifier = NetiNetiTrainer(learning_algorithm='NB')
 pickle.dump(classifier, open('../data/netineti_trainer_dump', 'wb'))
 time_training = time.clock()
-print "Training time: %s" % (time_training - time_start)
+print("Training time: %s" % (time_training - time_start))
 nn = NetiNeti(classifier)
 for i in range(1, num_cycles):
-    print "going through the cycle %s" % i
+    print("going through the cycle %s" % i)
     time_start = time.clock()
     result = nn.find_names(open("../data/test.txt").read())
-    print "Name finding time: %s" % (time.clock() - time_start)
+    print("Name finding time: %s" % (time.clock() - time_start))
 
     test_result_file = open("../data/test_result_after_refactoring.txt", 'w')
 
@@ -101,6 +101,7 @@ recalls = [p[0] for p in population]
 precisions = [p[1] for p in population]
 f1_scores = [p[2] for p in population]
 
-print '', '\t', 'recall', '\t', 'precision', '\t', 'f1_score'
-print 'Mean', '\t', mean(recalls), '\t', mean(precisions), '\t', mean(f1_scores)
-print differences
+print('', '\t', 'recall', '\t', 'precision', '\t', 'f1_score')
+print('Mean', '\t', mean(recalls), '\t', mean(precisions),
+      '\t', mean(f1_scores))
+print(differences)
