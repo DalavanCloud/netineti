@@ -99,6 +99,11 @@ Run all tests in another terminal window
 ```
 docker-compose run app nosetests -s
 ```
+Run a specific test
+
+```
+docker-compose run app nosetests -s netineti.test.token_tests
+```
 
 ``netineti`` repository is mapped to its docker container in development
 mode, so when you develop new features on host machine all the changes will be

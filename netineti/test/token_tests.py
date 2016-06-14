@@ -23,3 +23,12 @@ class TestToken(unittest.TestCase):
         self.assertEqual(token.start, 0)
         self.assertEqual(token.end, 4)
         self.assertEqual(token.verbatim, 'hello!')
+
+    def test_clean(self):
+        """Check if token cleans verbatim correctly"""
+        words = ["!helo", "helo!", "123abc", "abc123", ",abdcc,adfd.",
+                 "#aon", "|sdfs|sdf|", ""]
+        tokens = [Token(0, len(w), w) for w in words]
+        cleans = [t.cleaned for t in tokens]
+        self.assertEqual(cleans, ['helo', 'helo', 'abc', 'abc', 'abdcc,adfd',
+                                  'aon', 'sdfs|sdf', ''])

@@ -1,4 +1,5 @@
 """Token object keeps information about a word in text"""
+import re
 
 class Token(object):
     """Implements logic associated with tokens"""
@@ -19,6 +20,8 @@ class Token(object):
         value -- string representation of the word
 
         """
+        self.noalpha = re.compile(u'^[\\W\\d_]*(.*?)[\\W\\d_]*$', re.U | re.M)
         self.start = start
         self.end = end
         self.verbatim = verbatim
+        self.cleaned = self.noalpha.match(verbatim).group(1)

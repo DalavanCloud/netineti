@@ -25,7 +25,7 @@ class CommonWords(Data):
     PATH = DATA_PATH + "black/common_eu_words.txt"
 
 class BlackBayes(Data):
-    """Prepares black list for Naive Bayes"""
+    """Prepares black list for Naive Bayes, comes from original netineti"""
     PATH = DATA_PATH + "black/bayes.txt"
 
 class WhiteSpecies(Data):
@@ -69,12 +69,48 @@ class GreyGenera(object):
         return genus in self.data and species in self.data[genus]
 
 class ListData(object):
-    """Handles collection of white, grey and black lists"""
-    def __init__(self):
-        self.black = BlackBayes()
-        self.common = CommonWords()
-        self.species = WhiteSpecies()
-        self.genera = WhiteGenera()
-        self.uninomials = WhiteUninomials()
-        self.grey_species = GreySpecies()
-        self.grey_genera = GreyGenera()
+    """Singleton to handle collections of white, grey and black lists"""
+    instance = None
+    def __new__(cls):
+        if ListData.instance is None:
+            ListData.instance = object.__new__(cls)
+            ListData.instance.lists = {"black": BlackBayes(),
+                                       "common": CommonWords(),
+                                       "species": WhiteSpecies(),
+                                       "genera": WhiteGenera(),
+                                       "uninomials": WhiteUninomials(),
+                                       "grey_species": GreySpecies(),
+                                       "grey_genera": GreyGenera()}
+        return ListData.instance
+
+    def in_black(self, word):
+        """Checks if a word is in original Bayes black list"""
+        return self.lists["black"].contains(word)
+
+    def in_common(self, word):
+        """Checks if a word is in common-european/all-english words lists"""
+        return self.lists["common"].contains(word)
+
+    def in_species(self, word):
+        """Checks if a word is in species epithets"""
+        return self.lists["species"].contains(word)
+
+    def in_genera(self, word):
+        """Checks if a word is in genera"""
+        return self.lists["genera"].contains(word)
+
+    def in_uninomials(self, word):
+        """Checks if a word is in uninomials"""
+        return self.lists["uninomials"].contains(word)
+
+    def in_grey_species(self, word):
+        """Checks if a word is in grey species list"""
+        return self.lists["grey_species"].contains(word)
+
+    def in_grey_genera(self, word):
+        """Checks if the word is in grey genera"""
+        return self.lists["grey_genera"].contains(word)
+
+    def in_grey_genera_species(self, genus, species):
+        """Checks if a grey genera is known to have the species epithet"""
+        return self.lists["grey_genera"].contains_species(genus, species)
