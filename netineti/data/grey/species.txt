@@ -486,7 +486,6 @@ archon
 arcturus
 ardor
 arduous
-are
 area
 areca
 arena
@@ -546,7 +545,6 @@ arum
 arundel
 aruspex
 aryan
-as
 asafoetida
 asbestos
 ascanius
@@ -587,11 +585,9 @@ astrolabe
 asturias
 astyanax
 asur
-at
 atahualpa
 atalanta
 ataxia
-ate
 athamas
 athanasia
 athena
@@ -3134,7 +3130,6 @@ impresa
 impress
 imprimis
 improvisator
-in
 inamorata
 inane
 inca
@@ -3225,7 +3220,6 @@ iris
 iritis
 iron
 iroquois
-is
 isaac
 isabella
 isfahan
@@ -3242,7 +3236,6 @@ issus
 istanbul
 isthmus
 istria
-it
 italia
 ithaca
 ito
@@ -3252,7 +3245,6 @@ ixia
 ixion
 izmir
 izquierda
-ja
 jabiru
 jaborandi
 jacaranda
@@ -4476,9 +4468,7 @@ oedema
 oedipus
 oenone
 oesophagus
-of
 offshore
-oh
 oi
 oidium
 ojibwa
@@ -4504,7 +4494,6 @@ omega
 omen
 omnibus
 omphale
-on
 onager
 onega
 onondaga
@@ -6787,12 +6776,9 @@ wet
 whale
 whaleback
 whiff
-white
-who
 whyalla
 wichita
 wie
-wild
 willowy
 windsor
 wine
@@ -6802,7 +6788,6 @@ winnipegosis
 winter
 wirra
 wite
-with
 wolf
 wolff
 wollongong
@@ -6810,9 +6795,7 @@ wombat
 woodman
 woody
 woolley
-world
 wreath
-wrote
 wyandotte
 xanthine
 xanthippe

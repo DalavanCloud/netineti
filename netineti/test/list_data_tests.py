@@ -15,7 +15,7 @@ class TestListData(unittest.TestCase):
             self.assertTrue(l.in_common("common"))
             self.assertFalse(l.in_common("Pomatomus"))
 
-            self.assertTrue(l.in_species("major"))
+            self.assertFalse(l.in_species("major"))
             self.assertFalse(l.in_species("building"))
 
             self.assertTrue(l.in_genera("Plantago"))

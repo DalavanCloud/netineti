@@ -29,3 +29,15 @@ def is_known_genus(word):
 def is_known_species(word):
     """Checks if a word is a known species epithet"""
     return LISTS.in_species(word)
+
+def is_ambiguous_genus(word):
+    """Checks if a word is in grey genera"""
+    return LISTS.in_grey_genera(word)
+
+def is_ambiguous_species(word):
+    """Checks if a word is in grey species list"""
+    return LISTS.in_grey_species(word)
+
+def is_species_ambiguous_genus(genus, species):
+    """Checks if it is a known species for a 'grey' genus"""
+    return LISTS.in_grey_genera_species(genus, species)

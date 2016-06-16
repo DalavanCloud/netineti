@@ -7,7 +7,6 @@ Output : A list of scientific names
 """
 
 from netineti.tokenizer import Tokenizer
-from netineti.list_data import ListData
 from netineti.name_candidate import NameCandidate
 from netineti.name_parser import NameParser
 
@@ -22,14 +21,14 @@ class NameFinder(object):
     def _prepare_output(names):
         return names
 
-    def __init__(self, model):
+    def __init__(self, model, include_nlp=True):
         """Creates the name finder object.
 
         Arguments:
         model_object -- a trained NetiNetiTrainer instance object
 
         """
-        self.lists = ListData()
+        self.include_nlp = include_nlp
         self._model_object = model
         self._tokens = []
         self.parser = NameParser()
@@ -53,8 +52,10 @@ class NameFinder(object):
         from 'promising' tokens"""
         pre_names = self._collect_pre_names()
         self._parse_raw(pre_names)
-        import pdb; pdb.set_trace()
-        return self._refine_names(pre_names)
+        names = (n for n in pre_names if n.select(self.include_nlp))
+        # import pdb; pdb.set_trace()
+        # self._parse_final(names)
+        return names
 
     def _collect_pre_names(self):
         """Collects possible names by finding capitalized words and
@@ -78,16 +79,11 @@ class NameFinder(object):
     def _parse_raw(self, pre_names):
         self.parser.start()
         for name in pre_names:
-            name.parsed_raw = self.parser.parse(name.string)
+            name.parsed_raw = self.parser.parse(name.name_string)
         self.parser.stop()
 
-
-    def _prepare_name_candidate(self, token):
-        pass
-
-
-    def _examine_name_candidate(self, name_candidate):
-        pass
-
-    def _refine_names(self, pre_names):
-        pass
+    def _parse_final(self, names):
+        self.parser.start()
+        for name in names:
+            name.parsed_final = self.parser.parse(name.name_string)
+        self.parser.stop()

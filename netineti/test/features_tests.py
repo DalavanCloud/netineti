@@ -42,10 +42,18 @@ class TestFeaturesFunctions(unittest.TestCase):
         """Checks if a word is known genus word"""
         self.assertTrue(features.is_known_genus("Parus"))
         self.assertFalse(features.is_known_genus("Hello"))
-        self.assertTrue(features.is_known_genus("Cancer"))
+        self.assertFalse(features.is_known_genus("Cancer"))
 
     def test_is_known_species(self):
         """Checks if a word is a known species epithet"""
         self.assertTrue(features.is_known_species("saltator"))
         self.assertFalse(features.is_known_species("computerized"))
-        self.assertTrue(features.is_known_species("major"))
+        self.assertFalse(features.is_known_species("major"))
+
+    def test_ambiguous_genus(self):
+        """Checks if a word is ambiguous as genus (can be normal word too)"""
+        self.assertFalse(features.is_ambiguous_genus("Pomatomus"))
+        self.assertFalse(features.is_ambiguous_genus("Hello"))
+        self.assertTrue(features.is_ambiguous_genus("Cancer"))
+        self.assertFalse(features.is_ambiguous_genus("Parus"))
+
