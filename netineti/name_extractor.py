@@ -40,7 +40,7 @@ class Extractor(object):
         else:
             species = self._strict_species(sp)
         if species:
-            return g + ' ' + ''.join(species)
+            return g + ' ' + ' '.join(species)
         elif is_genus:
             return g
         else:
@@ -57,7 +57,7 @@ class Extractor(object):
 
     def _is_genus(self, genus, species):
         return (features.is_known_genus(genus) or
-                is_species_ambiguous_genus(genus, species))
+                features.is_species_ambiguous_genus(genus, species))
 
 class UninomialExtractor(Extractor):
     """Extract name-strings from potential uninomials"""

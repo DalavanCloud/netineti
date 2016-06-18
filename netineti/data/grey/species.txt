@@ -33,7 +33,6 @@ acapulco
 acarus
 accentor
 accipiter
-according
 accra
 accumulator
 ace
@@ -78,7 +77,6 @@ aden
 adenitis
 adeus
 admetus
-admirable
 admiral
 adobe
 adonis
@@ -1803,7 +1801,6 @@ daphnis
 dardanus
 darien
 darjeeling
-dark
 darter
 darwin
 das
@@ -6240,9 +6237,7 @@ thanatopsis
 thanatos
 thapsus
 thar
-that
 thatch
-the
 theca
 themis
 themistocles

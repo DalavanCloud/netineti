@@ -35,9 +35,39 @@ class TestNameExtractor(unittest.TestCase):
         ne = NameExtractor(parsed)
         self.assertEqual(ne.name_string(), "Pomatomus")
 
+    def test_genus_punctuation(self):
+        """test extraction of a name-string from genus parsed data"""
+        parsed = TestNameExtractor.parser.parse("Pomatomus. Sounds nice")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus")
+        parsed = TestNameExtractor.parser.parse("Pomatomus; saltator nice")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus")
+        parsed = TestNameExtractor.parser.parse("Pomatomus, saltator, alba")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus")
+
     def test_name_string_from_species(self):
         """test extraction of a name-string from species parsed data"""
         parsed = TestNameExtractor.parser.parse("Pomatomus saltator")
         ne = NameExtractor(parsed)
         self.assertEqual(ne.name_string(), "Pomatomus saltator")
+        parsed = TestNameExtractor.parser.parse("Pomatomus alba")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus alba")
 
+    def test_multiple_species(self):
+        """test extraction of a name-string from species parsed data"""
+        parsed = TestNameExtractor.parser.parse("Pomatomus saltator major alba")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus saltator major alba")
+        parsed = TestNameExtractor.parser.parse("""
+        Pomatomus saltator major is found only in the dark corners""")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus saltator major alba")
+
+    def test_punctuation_species(self):
+        """test extraction of a name-string from species parsed data"""
+        parsed = TestNameExtractor.parser.parse("Pomatomus saltator, major")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Pomatomus saltator")
