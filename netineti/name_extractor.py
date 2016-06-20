@@ -5,7 +5,7 @@ import netineti.features as features
 class NameExtractor(object):
     """Takes parsed data, and determines if it contains a name or not"""
 
-    def __init__(self, parsed_data, with_nlp=True):
+    def __init__(self, parsed_data, with_nlp=False):
         self._parsed_data = parsed_data
 
         canonical = parsed_data["canonical_name"]["value"].split(" ")
@@ -70,7 +70,13 @@ class Extractor(object):
 
     def _is_genus(self, genus, species):
         return (features.is_known_genus(genus) or
-                features.is_species_ambiguous_genus(genus, species))
+                self._confirm_doubtful_genus(genus, species))
+
+    def _confirm_doubtful_genus(self, genus, species):
+        for s in species:
+            if features.is_species_ambiguous_genus(genus, s):
+                return True
+        return False
 
 class UninomialExtractor(Extractor):
     """Extract name-strings from potential uninomials"""

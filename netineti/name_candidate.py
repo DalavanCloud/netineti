@@ -24,10 +24,13 @@ class NameCandidate(object):
             )
         return is_a_maybe
 
-    def select(self, with_nlp):
-        """Selects names candidates which contained scientific names"""
+    def select(self, with_nlp=False):
+        """Selects names candidates which contained scientific names.
+        The parsed_raw must be created for this method to work correctly"""
+        if not self.parsed_raw:
+            raise "Run parser over name candidate string"
         if self.parsed_raw["parsed"]:
-            hc = NameExtractor(with_nlp, self.parsed_raw)
+            hc = NameExtractor(self.parsed_raw, with_nlp)
             self.name_string = hc.name_string()
             return True if self.name_string else False
         else: return False

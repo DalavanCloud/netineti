@@ -55,6 +55,9 @@ class TestNameExtractor(unittest.TestCase):
         parsed = TestNameExtractor.parser.parse("Pomatomus alba")
         ne = NameExtractor(parsed)
         self.assertEqual(ne.name_string(), "Pomatomus alba")
+        parsed = TestNameExtractor.parser.parse("Homo sapiens is an ape")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Homo sapiens")
 
     def test_multiple_species(self):
         """test extraction of a name-string from species parsed data"""
