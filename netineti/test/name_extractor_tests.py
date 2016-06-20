@@ -64,10 +64,39 @@ class TestNameExtractor(unittest.TestCase):
         parsed = TestNameExtractor.parser.parse("""
         Pomatomus saltator major is found only in the dark corners""")
         ne = NameExtractor(parsed)
-        self.assertEqual(ne.name_string(), "Pomatomus saltator major alba")
+        self.assertEqual(ne.name_string(), "Pomatomus saltator major")
+        parsed = TestNameExtractor.parser.parse("""Carex scirpoidea subsp.
+        convoluta (Kükenthal 1909) D. A. Dunlop 1998 is quite
+        long species name!""")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), "Carex scirpoidea convoluta")
 
     def test_punctuation_species(self):
         """test extraction of a name-string from species parsed data"""
         parsed = TestNameExtractor.parser.parse("Pomatomus saltator, major")
         ne = NameExtractor(parsed)
         self.assertEqual(ne.name_string(), "Pomatomus saltator")
+
+    def test_named_hybrid(self):
+        """test extraction of a name-string from hybrid parsed data"""
+        parsed = TestNameExtractor.parser.parse("x Plantago major")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), '× Plantago major')
+
+    def test_short_hybrid(self):
+        """test extraction of a name-string from hybrid parsed data"""
+        parsed = TestNameExtractor.parser.parse("Plantago x major")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), 'Plantago × major')
+
+    def test_hybrid_formula(self):
+        """test extraction of a name-string from hybrid parsed data"""
+        parsed = TestNameExtractor.parser.parse("Plantago major x Parus major")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), 'Plantago major × Parus major')
+        parsed = TestNameExtractor.parser.parse("Plantago major x saltator")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), 'Plantago major × saltator')
+        parsed = TestNameExtractor.parser.parse("Plantago major x minor")
+        ne = NameExtractor(parsed)
+        self.assertEqual(ne.name_string(), 'Plantago major × minor')
