@@ -31,6 +31,6 @@ class TestNameFinder(unittest.TestCase):
         text = """
         I have no Idea if this Document Contains names! Especially
         something like Homo sapiens Linneaus 1758, or may be Pardosa mo-
-        esta."""
+        esta..."""
         res = TestNameFinder.nf.find(text)
         self.assertTrue(res != 1)

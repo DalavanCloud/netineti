@@ -53,7 +53,6 @@ class NameFinder(object):
         pre_names = self._collect_pre_names()
         self._parse_raw(pre_names)
         names = (n for n in pre_names if n.select(self.include_nlp))
-        # import pdb; pdb.set_trace()
         # self._parse_final(names)
         return names
 
@@ -79,11 +78,11 @@ class NameFinder(object):
     def _parse_raw(self, pre_names):
         self.parser.start()
         for name in pre_names:
-            name.parsed_raw = self.parser.parse(name.name_string)
+            name.parsed = self.parser.parse(name.name_string.name_string)
         self.parser.stop()
 
     def _parse_final(self, names):
         self.parser.start()
         for name in names:
-            name.parsed_final = self.parser.parse(name.name_string)
+            name.parsed = self.parser.parse(name.name_string.name_string)
         self.parser.stop()

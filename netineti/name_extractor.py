@@ -11,9 +11,9 @@ class NameExtractor(object):
         canonical = parsed_data["canonical_name"]["value"].split(" ")
         self._extractor = self._extractor_factory(canonical, with_nlp)
 
-    def name_string(self):
+    def canonical_list(self):
         """Extracts a name string out of parsed data"""
-        return self._extractor.name_string()
+        return self._extractor.canonical_list()
 
     def _extractor_factory(self, canonical, with_nlp):
         if "×" in canonical:
@@ -29,13 +29,13 @@ class Extractor(object):
         self.canonical = canonical
         self.with_nlp = with_nlp
 
-    def name_string(self):
+    def canonical_list(self):
         """Extracts name-string from canonical"""
         g = self.canonical[0]
         sp = self.canonical[1:]
-        return self._name_string(g, sp)
+        return self._canonical_list(g, sp)
 
-    def _name_string(self, gen, spa):
+    def _canonical_list(self, gen, spa):
         is_genus = self._is_genus(gen, spa)
         species = []
         if is_genus:
@@ -43,11 +43,11 @@ class Extractor(object):
         else:
             species = self._strict_species(spa)
         if species:
-            return gen + ' ' + ' '.join(species)
+            return [gen] + species
         elif is_genus:
-            return gen
+            return [gen]
         else:
-            return ''
+            return []
 
     def _relaxed_species(self, species):
         res = []
@@ -81,17 +81,17 @@ class Extractor(object):
 class UninomialExtractor(Extractor):
     """Extract name-strings from potential uninomials"""
 
-    def name_string(self):
+    def canonical_list(self):
         """Extracts name-string from canonical"""
         w = self.canonical[0]
         if features.is_known_uninomial(w) or features.is_known_genus(w):
-            return w
-        else: return ""
+            return self.canonical
+        else: return []
 
 class HybridExtractor(Extractor):
     """Extract names from potential hybrids"""
 
-    def name_string(self):
+    def canonical_list(self):
         """Extracts name-string from canonical"""
         elements = [e.strip() for e in ' '.join(self.canonical).split('×')]
         left = [w for w in elements[0].split(" ") if w]
@@ -104,22 +104,22 @@ class HybridExtractor(Extractor):
             return self._hybrid_formula(left, right)
 
     def _named_hybrid(self, right):
-        ns = self._name_string(right[0], right[1:])
-        return '× ' + ns if ns else ''
+        ns = self._canonical_list(right[0], right[1:])
+        return ['×'] + ns if ns else []
 
     def _short_hybrid(self, genus, species):
-        res = self._name_string(genus, species).split(' ')
-        return res[0] + ' × ' + ' '.join(res[1:]) if len(res) > 1 else res[0]
+        res = self._canonical_list(genus, species)
+        return [res[0], '×'] + res[1:] if len(res) > 1 else res
 
     def _hybrid_formula(self, left, right):
-        left_name = self._name_string(left[0], left[1:])
-        right_name = ''
+        left_name = self._canonical_list(left[0], left[1:])
+        right_name = []
         if features.is_capitalized(right[0]):
-            right_name = self._name_string(right[0], right[1:])
+            right_name = self._canonical_list(right[0], right[1:])
         else:
             is_genus = self._is_genus(left[0], right)
             if is_genus:
-                right_name = ' '.join(self._relaxed_species(right))
+                right_name = self._relaxed_species(right)
             else:
-                right_name = ' '.join(self._strict_species(right))
-        return left_name + ' × ' + right_name if right_name else left_name
+                right_name = self._strict_species(right)
+        return left_name + ['×'] + right_name if right_name else left_name

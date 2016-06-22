@@ -42,6 +42,6 @@ class TestNameCandidate(unittest.TestCase):
         text = "Homo sapiens is an ape"
         token, tokens = self.__class__.prepare_data(text)
         nc = NameCandidate(token, tokens)
-        nc.parsed_raw = self.__class__.parser.parse(text)
+        nc.parsed = self.__class__.parser.parse(text)
         self.assertTrue(nc.select())
-        self.assertEqual(nc.name_string, "Homo sapiens")
+        self.assertEqual(nc.name_string.canonical, "Homo sapiens")
