@@ -17,10 +17,6 @@ class NameFinder(object):
     This version supports offsets.
 
     """
-    @staticmethod
-    def _prepare_output(names):
-        return names
-
     def __init__(self, model, include_nlp=True):
         """Creates the name finder object.
 
@@ -44,7 +40,12 @@ class NameFinder(object):
         """
         self._tokens = Tokenizer(text).tokenize()
         names = self._traverse_tokens()
-        return self._prepare_output(names)
+        return [self._prepare_output(n) for n in names]
+
+    def _prepare_output(self, name):
+        ns = name.name_string
+        return {"canonical": ns.canonical, "parsed": name.parsed,
+                "start": ns.start(), "end": ns.end()}
 
     def _traverse_tokens(self):
         """Takes tokens from the end of tokens array,
@@ -84,5 +85,6 @@ class NameFinder(object):
     def _parse_final(self, names):
         self.parser.start()
         for name in names:
-            name.parsed = self.parser.parse(name.name_string.name_string)
+            if name.name_string.name_string != name.name_string.raw_name_string:
+                name.parsed = self.parser.parse(name.name_string.name_string)
         self.parser.stop()
