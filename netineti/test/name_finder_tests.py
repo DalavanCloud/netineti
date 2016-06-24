@@ -26,6 +26,10 @@ class TestNameFinder(unittest.TestCase):
             cls.nt = NetiNetiTrainer()
         cls.nf = NameFinder(TestNameFinder.nt)
 
+    @staticmethod
+    def get_names(res):
+        return [n["normalized"]["value"] for n in res]
+
     def test_find(self):
         """Test finding names"""
         text = """
@@ -33,4 +37,6 @@ class TestNameFinder(unittest.TestCase):
         something like Homo sapiens Linneaus 1758, or may be Pardosa mo-
         esta..."""
         res = TestNameFinder.nf.find(text)
-        self.assertTrue(res != 1)
+        self.assertEqual(self.__class__.get_names(res),
+                         ["Homo sapiens Linneaus 1758", "Pardosa moesta"])
+

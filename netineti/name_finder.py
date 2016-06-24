@@ -44,8 +44,25 @@ class NameFinder(object):
 
     def _prepare_output(self, name):
         ns = name.name_string
-        return {"canonical": ns.canonical, "parsed": name.parsed,
-                "start": ns.start(), "end": ns.end()}
+        verbatim_end = name.parsed["positions"][-1][-1]
+        canonical_end = ns.canonical_pos[-1][-1]
+        return {
+            "verbatim": {
+                "value":
+                name.parsed["verbatim"][0:verbatim_end],
+                "start": ns.start(),
+                "end": ns.end(verbatim_end)
+                },
+            "canonical": {
+                "value": ns.canonical,
+                "start": ns.start(),
+
+                "end": ns.end(canonical_end)
+                },
+            "normalized": {
+                "value": name.parsed["normalized"]
+                }
+            }
 
     def _traverse_tokens(self):
         """Takes tokens from the end of tokens array,

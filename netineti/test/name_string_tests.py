@@ -16,9 +16,7 @@ class TestNameString(unittest.TestCase):
         ns = NameString(tokens.pop(), tokens[-1:-15:-1])
         self.assertEqual(ns.name_string, "Puma concolor crawls slowly, and " +
                          "then jumps farrrr. And this is not the end of")
-        self.assertEqual(ns.offsets[0:4],
-                         [{0: {'offset': 0, 'position': 'start', 'token': 0}},
-                          {4: {'offset': 14, 'position': 'end', 'token': 0}},
-                          {5: {'offset': 15, 'position': 'start', 'token': 1}},
-                          {13: {'offset': 23, 'position': 'end', 'token': 1}}])
-
+        self.assertEqual(
+            [ns.offsets[k]['offset'] for k in sorted(ns.offsets.keys())],
+            [0, 14, 15, 23, 24, 30, 31, 48, 49, 52, 53, 57, 58, 63, 64, 71,
+            72, 75, 76, 80, 81, 83, 84, 87, 88, 91, 92, 95, 96, 98])

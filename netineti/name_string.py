@@ -4,24 +4,39 @@ class NameString(object):
     """Respresents string representation of tokens"""
 
     def __init__(self, token, tokens):
-        self.offsets = []
+        self.offsets = {}
         self.name_string = self._from_tokens(token, tokens)
         self.raw_name_string = self.name_string
         self.canonical = ''
-        self.canonical_words = frozenset(['hybrid_char', 'uninomial', 'genus',
-                                          'species_epithet',
-                                          'infraspecific_epithet'])
+        self.canonical_list = []
+        self.canonical_pos = []
 
-    def adjust(self, canonical, pos):
+    def adjust(self, canonical_list, pos):
         """Save canonical, adjust name_string according to canonical form"""
-        self.canonical = ' '.join(canonical)
-        canonical_pos = [p for p in pos if p[0] in self.canonical_words]
-        words_num = len(canonical)
-        if len(canonical_pos) > words_num:
-            self.name_string = self.name_string[0:canonical_pos[words_num][1]]
+        canonical_words = frozenset(['hybrid_char', 'uninomial', 'genus',
+                                          'specific_epithet',
+                                          'infraspecific_epithet'])
+        self.canonical = ' '.join(canonical_list)
+        self.canonical_list = canonical_list
+        self.canonical_pos = [p for p in pos if p[0] in canonical_words]
+        words_num = len(canonical_list)
+        if len(self.canonical_pos) > words_num:
+            self.name_string = self.name_string[0:self.canonical_pos[words_num][1]]
             return True
         else:
             return False
+
+    def start(self):
+        return self.offsets[0]["offset"]
+
+    def end(self, pos):
+        tokens_pos = sorted(self.offsets.keys())
+        try:
+            return self.offsets[pos]["offset"]
+        except KeyError as e:
+            for k in tokens_pos:
+                if k > pos:
+                    return  self.offsets[k]["offset"] - k + pos
 
 
     def _from_tokens(self, token, tokens):
@@ -34,10 +49,10 @@ class NameString(object):
 
     def _append_token(self, token, offset, count):
         end_pos = offset + len(token.verbatim)
-        self.offsets.append({offset: {"token": count, "position": "start",
-                                      "offset": token.start}})
-        self.offsets.append({end_pos: {"token": count, "position": "end",
-                                       "offset": token.end}})
+        self.offsets[offset] = {"token": count, "position": "start",
+                                "offset": token.start}
+        self.offsets[end_pos] = {"token": count, "position": "end",
+                                 "offset": token.end}
         return end_pos + 1
 
 
