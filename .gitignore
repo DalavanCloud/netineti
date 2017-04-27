@@ -8,3 +8,4 @@ tags
 build
 neti_http_config.cfg
 netineti.egg-info/*
+.idea
